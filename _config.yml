@@ -12,7 +12,7 @@ site_theme               : "default" # The available themes options are "default
 title                    : "Junteng Liu"
 title_separator          : "-"
 name                     : &name "Junteng Liu"
-description              : &description "Personal academic homepage of Junteng Liu, a PhD candidate at HKUST NLP Group working on natural language processing and machine learning."
+description              : &description "Personal academic homepage of Junteng Liu."
 url                      : https://ssgddiwjkcin.github.io # The base hostname & protocol for your site
 baseurl                  : "/LJT-Homepage" # the subpath of your site
 repository               : "ssgddiwjkcin/LJT-Homepage"
@@ -25,8 +25,8 @@ author:
   avatar           : "profile.png"
   name             : "Junteng Liu"
   pronouns         :
-  bio              : "First-year PhD candidate at the HKUST NLP Group, HKUST, supervised by Prof. Junxian He. My research focuses on natural language processing and machine learning."
-  location         : "Hong Kong"
+  bio              : "First-year PhD candidate at the HKUST NLP Group, Hong Kong University of Science and Technology, supervised by Prof. Junxian He. Research focuses on natural language processing and machine learning."
+  location         :
   employer         : "Hong Kong University of Science and Technology"
   uri              :
   email            : "jliugi@connect.ust.hk"
@@ -135,13 +135,13 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               :
+  username               : "junteng88716710"
 facebook:
   username               :
   app_id                 :
   publisher              :
 og_image                 : og-image.png   # Social media default site image (lives in /images/)
-og_description           :
+og_description           : "Personal academic homepage of Junteng Liu."
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
