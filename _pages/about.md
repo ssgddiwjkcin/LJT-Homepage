@@ -7,19 +7,19 @@ redirect_from:
   - /about.html
 ---
 
-I am **Junteng Liu**, a first-year Ph.D. candidate at the HKUST NLP Group, Hong Kong University of Science and Technology (HKUST), supervised by Professor Junxian He. I graduated from Shanghai Jiao Tong University (SJTU) in June 2024, where I was previously advised by Professor Junxian He during my undergraduate studies. My research focuses on natural language processing and machine learning. My research interests include LLM Reasoning and Reinforcement Learning, Hallucination in Vision-Language Models (VLM), and LLM truthfulness and Interpretability.
+I am **Junteng Liu**, a first-year PhD candidate at HKUST NLP Group, Hong Kong University of Science and Technology (HKUST), supervised by Professor Junxian He, who leads the HKUST NLP Group. I graduated from Shanghai Jiao Tong University (SJTU) in June 2024, where I was previously advised by Professor Junxian He during my undergraduate studies. My research focuses on natural language processing and machine learning. My research interests include LLM Reasoning and Reinforcement Learning, Hallucination in Vision-Language Models (VLM), and LLM truthfulness and Interpretability.
 
 ## Academic Background
 
-- **Ph.D. in Computer Science**, Hong Kong University of Science and Technology, 2024 – Present
-- **B.Eng.**, Shanghai Jiao Tong University, 2020 – 2024
+- **Ph.D. in Computer Science (2024-Present)**, Hong Kong University of Science and Technology
+- **B.Eng. (2020-2024)**, Shanghai Jiao Tong University
 
 ## Research Experience
 
-- **Research Intern**, MINIMAX, February 2025 – Present
-- **Research Intern**, Tencent WXG, June 2024 – September 2024
+- **Research Intern at MINIMAX** (February 2025 - Present)
+- **Research Intern at Tencent WXG** (June 2024 - September 2024)
   - Advisor: Zifei Shan
-- **Research Intern**, Shanghai AI Lab, June 2023 – December 2023
+- **Research Intern at Shanghai AI Lab** (June 2023 - December 2023)
   - Advisor: Prof. Yu Cheng
 
 ## Publications
@@ -46,7 +46,7 @@ I am **Junteng Liu**, a first-year Ph.D. candidate at the HKUST NLP Group, Hong 
 
 ## Awards
 
-- Zhiyuan Honor Scholarship, Shanghai Jiao Tong University
+- Received Zhiyuan Honor Scholarship at Shanghai Jiao Tong University
 
 ## Contact
 
