@@ -2,27 +2,20 @@
 name: Deploy Academic Pages template site to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["master"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-24.04
     outputs:
@@ -60,7 +53,6 @@ jobs:
             echo "value=/LJT-Homepage" >> "$GITHUB_OUTPUT"
           fi
       - name: Build with Jekyll
-        # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.baseurl.outputs.value }}"
         env:
           JEKYLL_ENV: production
@@ -78,17 +70,18 @@ jobs:
           }
           test -f _site/index.html || { echo "FAIL missing index"; exit 1; }
           test -f _site/publications/index.html || { echo "FAIL missing publications index"; exit 1; }
-          while IFS='|' read -r label pattern; do
-            check "home/$label" _site/index.html "$pattern"
-            check "publications/$label" _site/publications/index.html "$pattern"
-          done <<'EOF'
-SynLogic|SynLogic: Synthesizing Verifiable Reasoning Data at Scale for Learning Logical Reasoning and Beyond
-VLM Chart|On the Perception Bottleneck of VLMs for Chart Understanding
-Truthfulness|On the Universal Truthfulness Hyperplane Inside LLMs
-Sharpness|In-Context Sharpness as Alerts: An Inner Representation Perspective for Hallucination Mitigation
-C-Eval|C-Eval: A Multi-Level Multi-Discipline Chinese Evaluation Suite for Foundation Models
-PEFT Modules|Composing Parameter-Efficient Modules with Arithmetic Operations
-EOF
+          check "home/SynLogic" _site/index.html "SynLogic: Synthesizing Verifiable Reasoning Data at Scale for Learning Logical Reasoning and Beyond"
+          check "publications/SynLogic" _site/publications/index.html "SynLogic: Synthesizing Verifiable Reasoning Data at Scale for Learning Logical Reasoning and Beyond"
+          check "home/VLM-Chart" _site/index.html "On the Perception Bottleneck of VLMs for Chart Understanding"
+          check "publications/VLM-Chart" _site/publications/index.html "On the Perception Bottleneck of VLMs for Chart Understanding"
+          check "home/Truthfulness" _site/index.html "On the Universal Truthfulness Hyperplane Inside LLMs"
+          check "publications/Truthfulness" _site/publications/index.html "On the Universal Truthfulness Hyperplane Inside LLMs"
+          check "home/Sharpness" _site/index.html "In-Context Sharpness as Alerts: An Inner Representation Perspective for Hallucination Mitigation"
+          check "publications/Sharpness" _site/publications/index.html "In-Context Sharpness as Alerts: An Inner Representation Perspective for Hallucination Mitigation"
+          check "home/C-Eval" _site/index.html "C-Eval: A Multi-Level Multi-Discipline Chinese Evaluation Suite for Foundation Models"
+          check "publications/C-Eval" _site/publications/index.html "C-Eval: A Multi-Level Multi-Discipline Chinese Evaluation Suite for Foundation Models"
+          check "home/PEFT-Modules" _site/index.html "Composing Parameter-Efficient Modules with Arithmetic Operations"
+          check "publications/PEFT-Modules" _site/publications/index.html "Composing Parameter-Efficient Modules with Arithmetic Operations"
           check "home/email" _site/index.html "jliugi@connect.ust.hk"
           check "home/github" _site/index.html "Vicent0205"
           check "home/scholar" _site/index.html "tbK9jl4AAAAJ"
@@ -98,7 +91,6 @@ EOF
         if: steps.configure-pages.outcome == 'success'
         uses: actions/upload-pages-artifact@v5.0.0
 
-  # Deployment job
   deploy:
     environment:
       name: github-pages
