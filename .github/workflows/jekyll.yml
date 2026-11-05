@@ -64,6 +64,36 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.baseurl.outputs.value }}"
         env:
           JEKYLL_ENV: production
+      - name: Verify generated pages
+        run: |
+          status=0
+          check() {
+            label="$1"; file="$2"; pattern="$3"
+            if grep -F -q "$pattern" "$file"; then
+              echo "PASS $label"
+            else
+              echo "FAIL $label"
+              status=1
+            fi
+          }
+          test -f _site/index.html || { echo "FAIL missing index"; exit 1; }
+          test -f _site/publications/index.html || { echo "FAIL missing publications index"; exit 1; }
+          while IFS='|' read -r label pattern; do
+            check "home/$label" _site/index.html "$pattern"
+            check "publications/$label" _site/publications/index.html "$pattern"
+          done <<'EOF'
+SynLogic|SynLogic: Synthesizing Verifiable Reasoning Data at Scale for Learning Logical Reasoning and Beyond
+VLM Chart|On the Perception Bottleneck of VLMs for Chart Understanding
+Truthfulness|On the Universal Truthfulness Hyperplane Inside LLMs
+Sharpness|In-Context Sharpness as Alerts: An Inner Representation Perspective for Hallucination Mitigation
+C-Eval|C-Eval: A Multi-Level Multi-Discipline Chinese Evaluation Suite for Foundation Models
+PEFT Modules|Composing Parameter-Efficient Modules with Arithmetic Operations
+EOF
+          check "home/email" _site/index.html "jliugi@connect.ust.hk"
+          check "home/github" _site/index.html "Vicent0205"
+          check "home/scholar" _site/index.html "tbK9jl4AAAAJ"
+          check "home/x" _site/index.html "junteng88716710"
+          exit $status
       - name: Upload GitHub Pages artifact
         if: steps.configure-pages.outcome == 'success'
         uses: actions/upload-pages-artifact@v5.0.0
